@@ -1,0 +1,176 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="card-title">Listado de Ventas</h5>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-success float-right" id="btnew">Nuevo</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered mt-4">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre de cliente</th>
+                                    <th scope="col">Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="tbl">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Venta</h5>
+                <button type="button" class="close" onClick="modalOff()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" class="form-control" id="fecha" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Nombre del Cliente</label>
+                            <input type="text" class="form-control" id="nombre" />
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label>Tienda</label>
+                            <select class="form-control" id="tienda"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Detalle de Facturacion</h5>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label>Codigo</label>
+                                            <input type="text" class="form-control" id="codigo" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Nombre del Producto</label>
+                                            <input type="text" class="form-control" id="nombre" />
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label>Precio</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                                </div>
+                                                <input type="number" class="form-control" id="precio" />
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label>Cantidad</label>
+                                            <input type="number" class="form-control" id="codigo" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 ">
+                                        <div class="float-right">
+                                            <button type="button" class="btn btn-success ">Agregar</button>
+                                            <button type="button" class="btn btn-info   pl-4">Buscar</button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h6>Detalle de Venta</h6>
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-info">
+                                                <tr>
+                                                    <th scope="col">Cantidad</th>
+                                                    <th scope="col" >Nombre</th>
+                                                    <th scope="col">Precio</th>
+                                                    <th scope="col">Subtotal</th>
+                                                    <th scope="col">Opciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                        </table>
+                                        <div class="float-right">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-2 offset-4">
+                                                            <div class="float-right">
+                                                                <h6>Total:</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">$</span>
+                                                                </div>
+                                                                <input type="number" class="form-control" id="precio" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onClick="modalOff()">Cerrar</button>
+                <button type="button" id="btnsave" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/js/custom/categoria.js"></script>
+
+}
